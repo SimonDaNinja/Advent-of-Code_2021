@@ -1,5 +1,7 @@
 #! /usr/bin/env python3
 
+# just cat the input file and pipe it to this program
+
 previousWindow = []
 nIncreases = 0
 
