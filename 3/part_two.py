@@ -19,11 +19,10 @@ diagnosticsForOxygen = diagnostics.copy()
 for bit in range(diagnosticLength):
     if len(diagnosticsForOxygen) == 1:
         break
-    stats=[0 for i in range(diagnosticLength)]
+    stats=0
     for diagnostic in diagnosticsForOxygen:
-        for i in range(diagnosticLength):
-            stats[i] += 1 if diagnostic[i] == '1' else -1
-    commonBit = '0' if stats[bit] < 0 else '1'
+        stats += 1 if diagnostic[bit] == '1' else -1
+    commonBit = '0' if stats < 0 else '1'
     for diagnostic in diagnosticsForOxygen.copy():
         if diagnostic[bit] != commonBit:
             diagnosticsForOxygen.remove(diagnostic)
@@ -35,11 +34,10 @@ diagnosticsForCo2 = diagnostics.copy()
 for bit in range(diagnosticLength):
     if len(diagnosticsForCo2) == 1:
         break
-    stats=[0 for i in range(diagnosticLength)]
+    stats=0
     for diagnostic in diagnosticsForCo2:
-        for i in range(diagnosticLength):
-            stats[i] += 1 if diagnostic[i] == '1' else -1
-    commonBit = '0' if stats[bit] < 0 else '1'
+        stats += 1 if diagnostic[bit] == '1' else -1
+    commonBit = '0' if stats < 0 else '1'
     for diagnostic in diagnosticsForCo2.copy():
         if diagnostic[bit] == commonBit:
             diagnosticsForCo2.remove(diagnostic)
