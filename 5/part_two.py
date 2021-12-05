@@ -2,6 +2,8 @@
 
 # just cat the input file and pipe it to this program
 
+import numpy as np
+
 X = 0
 Y = 1
 
@@ -39,39 +41,30 @@ class Grid:
     def __repr__(self):
         return self.__str__()
 
-grid = Grid()
+if __name__ == '__main__':
+    grid = Grid()
 
-while True:
-    try:
-        lineStr = input()
-    except EOFError:
-        break
-    line = tuple(tuple(int(i) for i in point.split(',')) for point in lineStr.split(' -> '))
+    while True:
+        try:
+            lineStr = input()
+        except EOFError:
+            break
+        line = tuple(tuple(int(i) for i in point.split(',')) for point in lineStr.split(' -> '))
 
-    x = line[0][X]
-    x2 = line[1][X]
-    y = line[0][Y]
-    y2 = line[1][Y]
+        point1 = line[0]
+        point2 = line[1]
 
-    if y < y2:
-        yStep = 1
-    elif y > y2:
-        yStep = -1
-    else:
-        yStep = 0
+        x, y   = point1
+        x2, y2 = point2
 
-    if x < x2:
-        xStep = 1
-    elif x > x2:
-        xStep = -1
-    else:
-        xStep = 0
+        yStep = np.sign(y2-y)
+        xStep = np.sign(x2-x)
 
-    nSteps = max(abs(y2-y), abs(x2-x))+1
+        nSteps = max(abs(y2-y), abs(x2-x))+1
 
-    for i in range(nSteps):
-        grid[(x,y)] += 1
-        x += xStep
-        y += yStep
+        for i in range(nSteps):
+            grid[(x,y)] += 1
+            x += xStep
+            y += yStep
 
-print(len([gridPoint for gridPoint in grid.gridPoints if grid[gridPoint] >= 2]))
+    print(len([gridPoint for gridPoint in grid.gridPoints if grid[gridPoint] >= 2]))
