@@ -39,15 +39,6 @@ class Grid:
     def __repr__(self):
         return self.__str__()
 
-def isHorizontal(line):
-    return line[0][X] == line[1][X]
-
-def isVertical(line):
-    return line[0][Y] == line[1][Y]
-
-def isHorizontalOrVertical(line):
-    return isHorizontal(line) or isVertical(line)
-
 grid = Grid()
 
 while True:
