@@ -55,8 +55,7 @@ while True:
         lineStr = input()
     except EOFError:
         break
-    lineStr = lineStr.replace(' ','')
-    line = tuple(tuple(int(i) for i in point.split(',')) for point in lineStr.split('->'))
+    line = tuple(tuple(int(i) for i in point.split(',')) for point in lineStr.split(' -> '))
 
     x = line[0][X]
     x2 = line[1][X]
