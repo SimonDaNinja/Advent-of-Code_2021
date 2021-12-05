@@ -29,10 +29,10 @@ class Grid:
 
     def __str__(self):
         printStrings = []
-        for y in range(self.maxY):
+        for y in range(self.maxY+1):
             printString = ''
-            for x in range(self.maxX):
-                printString += str(self[(x+1,y+1)]) if self[x+1,y+1] != 0 else '.'
+            for x in range(self.maxX+1):
+                printString += str(self[(x,y)]) if self[x,y] != 0 else '.'
             printStrings.append(printString)
         return '\n'.join(printStrings)
 
