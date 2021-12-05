@@ -49,10 +49,8 @@ if __name__ == '__main__':
             lineStr = input()
         except EOFError:
             break
-        line = tuple(tuple(int(i) for i in point.split(',')) for point in lineStr.split(' -> '))
-
-        point1 = line[0]
-        point2 = line[1]
+        point1, point2 = tuple(tuple(int(i) for i in point.split(',')) for point in \
+                 lineStr.split(' -> '))
 
         x, y   = point1
         x2, y2 = point2
