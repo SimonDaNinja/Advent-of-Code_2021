@@ -2,7 +2,7 @@
 
 # just cat the input file and pipe it to this program
 
-import numpy as np
+from numpy import sign
 
 X = 0
 Y = 1
@@ -55,8 +55,8 @@ if __name__ == '__main__':
         x, y   = point1
         x2, y2 = point2
 
-        yStep = np.sign(y2-y)
-        xStep = np.sign(x2-x)
+        yStep = sign(y2-y)
+        xStep = sign(x2-x)
 
         nSteps = max(abs(y2-y), abs(x2-x))+1
 
