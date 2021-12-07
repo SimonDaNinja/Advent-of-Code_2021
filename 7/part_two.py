@@ -7,7 +7,7 @@ from math import inf
 crabPositions = [int(i) for i in input().split(',')]
 
 def triangular(n):
-    return sum(range(1, n+1))
+    return n*(n+1)//2
 
 bestCumulativeDistance = inf
 bestDestination = None
