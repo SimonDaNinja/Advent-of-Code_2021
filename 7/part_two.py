@@ -13,14 +13,11 @@ bestCumulativeDistance = inf
 bestDestination = None
 minCrab = min(crabPositions)
 maxCrab = max(crabPositions)
-nDestinations = maxCrab-minCrab + 1
 for destination in range(min(crabPositions), max(crabPositions)+1):
-    percentDone = int(100*(destination-minCrab)/nDestinations)
-    print(f"{percentDone} % done", end='\r')
     cumulativeDistance = sum([triangular(abs(destination - crabPosition)) for 
                                 crabPosition in crabPositions])
     if cumulativeDistance < bestCumulativeDistance:
         bestDestination = destination
         bestCumulativeDistance = cumulativeDistance
 
-print(f"\n{bestCumulativeDistance}")
+print(bestCumulativeDistance)
