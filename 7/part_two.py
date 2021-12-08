@@ -11,8 +11,6 @@ def triangular(n):
 
 bestCumulativeDistance = inf
 bestDestination = None
-minCrab = min(crabPositions)
-maxCrab = max(crabPositions)
 for destination in range(min(crabPositions), max(crabPositions)+1):
     cumulativeDistance = sum([triangular(abs(destination - crabPosition)) for 
                                 crabPosition in crabPositions])
