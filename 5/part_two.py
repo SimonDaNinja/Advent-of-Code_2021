@@ -15,9 +15,9 @@ class Grid:
         self.maxY = 0
 
     def addPoint(self, gridPoint):
-        self.maxX = max(self.maxX, gridPoint[X])
-        self.maxY = max(self.maxY, gridPoint[Y])
         if gridPoint not in self.gridPoints:
+            self.maxX = max(self.maxX, gridPoint[X])
+            self.maxY = max(self.maxY, gridPoint[Y])
             self.gridPoints[gridPoint] = 0
 
     def __getitem__(self, key):
