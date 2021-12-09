@@ -25,7 +25,7 @@ def getVonNeumannNeighbours(heightMap, i, j):
         neighbours.append((i, j+1))
     return neighbours
 
-def collectBasin(heightMap, point, basin = set(), collected = set()):
+def collectBasin(heightMap, point, basin, collected):
     if heightMap[point[0]][point[1]] == 9:
         return basin
     collected.add(point)
@@ -57,7 +57,7 @@ if __name__ == '__main__':
                 continue
             lowest = isLowPoint(heightMap, i, j)
             if lowest:
-                basin = collectBasin(heightMap, (i,j), basin = set())
+                basin = collectBasin(heightMap, (i,j), set(), set())
                 investigatedPoints |= basin
                 top3Basins.append(basin)
                 if len(top3Basins) > 3:
