@@ -22,26 +22,26 @@ def getSegments2Digits(empiricalDigits):
     empirical6 = [digit for digit in empiricalDigits if digit != empirical8
             and (empirical8-empirical7).issubset(digit)][0]
     segments2Digits =   {
-                            tuple(sorted(list(empirical0))) : 0,
-                            tuple(sorted(list(empirical1))) : 1,
-                            tuple(sorted(list(empirical4))) : 4,
-                            tuple(sorted(list(empirical5))) : 5,
-                            tuple(sorted(list(empirical6))) : 6,
-                            tuple(sorted(list(empirical7))) : 7,
-                            tuple(sorted(list(empirical8))) : 8,
-                            tuple(sorted(list(empirical9))) : 9
+                            tuple(sorted(empirical0)) : 0,
+                            tuple(sorted(empirical1)) : 1,
+                            tuple(sorted(empirical4)) : 4,
+                            tuple(sorted(empirical5)) : 5,
+                            tuple(sorted(empirical6)) : 6,
+                            tuple(sorted(empirical7)) : 7,
+                            tuple(sorted(empirical8)) : 8,
+                            tuple(sorted(empirical9)) : 9
                         }
     for digit in empiricalDigits:
-        if tuple(sorted(list(digit))) not in segments2Digits:
+        if tuple(sorted(digit)) not in segments2Digits:
             if empirical1.issubset(digit):
-                segments2Digits[tuple(sorted(list(digit)))] = 3
+                segments2Digits[tuple(sorted(digit))] = 3
             else:
-                segments2Digits[tuple(sorted(list(digit)))] = 2
+                segments2Digits[tuple(sorted(digit))] = 2
     return segments2Digits
 
 
-outputSum = 0
 if __name__ == '__main__':
+    outputSum = 0
     while True:
         try:
             inputDigitString, outputDigitString = input().split(' | ')
@@ -51,6 +51,6 @@ if __name__ == '__main__':
         outputDigits = [set(i) for i in outputDigitString.split()]
         segments2Digits = getSegments2Digits(digits)
         for i, digit in enumerate(outputDigits):
-            outputSum += 10**(3-i)*segments2Digits[tuple(sorted((list(digit))))]
+            outputSum += 10**(3-i)*segments2Digits[tuple(sorted((digit)))]
 
 print(outputSum)
