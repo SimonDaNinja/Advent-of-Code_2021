@@ -55,8 +55,7 @@ if __name__ == '__main__':
         for j in range(width):
             if (i,j) in investigatedPoints:
                 continue
-            lowest = isLowPoint(heightMap, i, j)
-            if lowest:
+            if isLowPoint(heightMap, i, j):
                 basin = collectBasin(heightMap, (i,j), set(), set())
                 investigatedPoints |= basin
                 top3Basins.append(basin)
