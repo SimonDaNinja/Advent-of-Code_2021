@@ -53,4 +53,4 @@ if __name__ == '__main__':
         for i, digit in enumerate(outputDigits):
             outputSum += 10**(3-i)*segments2Digits[tuple(sorted((digit)))]
 
-print(outputSum)
+    print(outputSum)
